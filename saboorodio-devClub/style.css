@@ -1,0 +1,155 @@
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.item {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background: var(--grad)
+}
+
+.item.active {
+    display: block;
+    animation: pageIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1;
+}
+
+@keyframes pageIn {
+    from {
+        clip-path: circle(0% at 50% 50%);
+        opacity: 0;
+    }
+    to {
+        clip-path: circle(150% at 50% 50%);
+        opacity: 1;
+    }
+}
+
+.item .título {
+    font-size: 8rem;
+    color: #ffffff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+    color: #fff;
+    text-shadow:
+        0 0 10px #fff,
+        0 0 30px #fff,
+        0 0 60px currentColor,
+        0 0 100px currentColor;
+
+    animation: neonPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+    from {
+        text-shadow:
+            0 0 10px #fff,
+            0 0 20px #fff,
+            0 0 40px currentColor;
+        letter-spacing: 0px;
+    }
+    to {
+        text-shadow:
+            0 0 20px #fff,
+            0 0 50px #fff,
+            0 0 100px currentColor,
+            0 0 150px currentColor;
+        letter-spacing: 4px;
+    }
+}
+.item .bebida {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    mix-blend-mode: screen;
+    transform: scale(1.5);
+}
+
+.item .garrafa {
+    z-index: 3;
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);   
+}
+
+.item .título:hover {
+   .item .título:hover {
+    transform: translate(-50%, -50%) scaleX(1.1);
+    transition: 0.3s;
+   }
+}
+
+@keyframes toActive {
+    from {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+.item.active .garrafa {
+    animation: toActive 0.7s ease-in-out 1;
+}
+
+.item.active .título {
+    animation: toActive 0.5s ease-in-out 1, neonPulse 2s ease-in-out 0.5s infinite alternate;
+}
+
+/* Botões */
+#prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: #eee9;
+    border: 1px solid #eee9;
+    color: #eee;
+    font-size: x-large;
+    font-family: monospace;
+    cursor: pointer;
+    z-index: 4;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+#prev:hover, #next:hover {
+    background-color: #fff3;
+}
+
+#prev { left: 30px; }
+#next { right: 30px; }
