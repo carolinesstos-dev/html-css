@@ -12,6 +12,7 @@
   --azul-editorial: #3A5A9B;
   --laranja-assinatura: #E8703A;
   --acento-rosa: #C43D5C;
+}
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -78,7 +79,33 @@ div.media > iframe {
     width:90%;
 }
 
-a, a:hover {
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: var(--bg-principal);
+  max-width: 700px;
+  margin: 0 auto; 
+}
+
+footer p {
+  margin-bottom: 8px; 
+}
+
+.social-links {
+  list-style: none; 
+  padding: 0px;
+  display: flex;   
+  justify-content: center; 
+  gap: 10px;       
+}
+
+.social-links a {
+  text-decoration: none;
   color: var(--laranja-assinatura);
+  font-weight: bold;
+}
+
+.social-links a:hover {
+  color: var(--acento-rosa); /* Muda a cor ao passar o mouse */
 }
 
